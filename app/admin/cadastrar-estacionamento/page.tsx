@@ -52,7 +52,7 @@ export default function CadastrarEstacionamentoPage() {
           Voltar
         </Button>
       </div>
-
+  
       <form onSubmit={handleSubmit}>
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid grid-cols-1 md:grid-cols-4 mb-8">
@@ -69,7 +69,7 @@ export default function CadastrarEstacionamentoPage() {
               <AlertCircle className="h-4 w-4" /> Configurações
             </TabsTrigger>
           </TabsList>
-
+  
           <Card>
             <TabsContent value="informacoes">
               <CardHeader>
@@ -314,4 +314,21 @@ export default function CadastrarEstacionamentoPage() {
                   <Label htmlFor="reservas-antecipadas" className="flex items-center gap-2 cursor-pointer">
                     Permitir reservas antecipadas
                   </Label>
-                  <Switch id="reservas-antecipadas" defaultChecke\
+                  <Switch id="reservas-antecipadas" defaultChecked />
+</div>
+</CardContent>
+<CardFooter className="flex justify-between">
+  <Button variant="outline" type="button" onClick={() => setActiveTab("horarios")}>
+    Anterior
+  </Button>
+  <Button type="submit" disabled={isLoading}>
+    {isLoading ? "Salvando..." : "Salvar"}
+  </Button>
+</CardFooter>
+</TabsContent>
+</Card>
+</Tabs>
+</form>
+</div>
+)
+}
