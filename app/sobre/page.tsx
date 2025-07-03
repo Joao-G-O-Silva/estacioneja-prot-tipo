@@ -203,36 +203,59 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* Nossa Equipe */}
-      <section className="w-full py-12 md:py-24 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2 max-w-[800px]">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Nossa Equipe</h2>
-              <p className="text-muted-foreground md:text-xl/relaxed">
-                Conheça os profissionais por trás do EstacioneJá
-              </p>
-            </div>
+     {/* Nossa Equipe */}
+<section className="w-full py-12 md:py-24 bg-background">
+  <div className="container px-4 md:px-6">
+    <div className="flex flex-col items-center justify-center space-y-4 text-center">
+      <div className="space-y-2 max-w-[800px]">
+        <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Nossa Equipe</h2>
+        <p className="text-muted-foreground md:text-xl/relaxed">
+          Conheça os profissionais por trás do EstacioneJá
+        </p>
+      </div>
+    </div>
+
+    {/* Lista de membros */}
+    <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {[
+        {
+          nome: "LUAN FREIRE ALVES DA SILVA",
+          cargo: "CEO & Fundador",
+          imagem: "/luan.jpg",
+        },
+        {
+          nome: "JOAO GABRIEL ODILON DA SILVA",
+          cargo: "Gerente de Designe",
+          imagem: "/joao.jpg",
+        },
+        {
+          nome: "PAULO SERGIO AMORIM DA SILVA",
+          cargo: "Gerente de Projeto",
+          imagem: "/paulo.jpg",
+        },
+        {
+          nome: "IFMS",
+          cargo: "Consultor em Desenvolvimento de Sistemas",
+          imagem: "/avatar-padrao.png",
+        },
+      ].map((membro, i) => (
+        <div key={i} className="flex flex-col items-center text-center">
+          <div className="mb-4 rounded-full overflow-hidden w-32 h-32">
+            <Image
+              src={membro.imagem}
+              alt={`Foto de ${membro.nome}`}
+              width={128}
+              height={128}
+              className="object-cover"
+            />
           </div>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="flex flex-col items-center text-center">
-                <div className="mb-4 rounded-full overflow-hidden w-32 h-32">
-                  <Image
-                    src={`/placeholder.svg?height=128&width=128&text=Membro+${i}`}
-                    alt={`Membro da equipe ${i}`}
-                    width={128}
-                    height={128}
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="text-lg font-bold">Nome do Membro {i}</h3>
-                <p className="text-sm text-muted-foreground">Cargo na Empresa</p>
-              </div>
-            ))}
-          </div>
+          <h3 className="text-lg font-bold">{membro.nome}</h3>
+          <p className="text-sm text-muted-foreground">{membro.cargo}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="w-full py-12 md:py-24 bg-primary text-white">
